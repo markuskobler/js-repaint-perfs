@@ -36,8 +36,9 @@ function render(dbs) {
         // queries
         for (var j = 0; j < topFiveQueries.length; j++) {
           var q = topFiveQueries[j];
+          if (!q.query) continue;
 
-          elementOpen('td', null, null, 'class', 'Query ' + q.elapsedClassName);
+          elementOpen('td', null, null, 'class', q.elapsedClassName);
             text(q.formatElapsed);
 
             elementOpen('div', null, POPOVER_STATICS);

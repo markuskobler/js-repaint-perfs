@@ -155,7 +155,7 @@ var ENV = ENV || (function() {
     };
   }
 
-  var mutationsValue = 0.5;
+  var mutationsValue = 0.2;
 
   function mutations(value) {
     if (value) {
@@ -177,6 +177,7 @@ var ENV = ENV || (function() {
   text.id = "ratioval";
   slider.setAttribute("type", "range");
   slider.style.cssText = 'margin-bottom: 10px; margin-top: 5px';
+  slider.value = mutationsValue * 100;
   slider.addEventListener('change', function(e) {
     ENV.mutations(e.target.value / 100);
     document.querySelector('#ratioval').innerHTML = 'mutations : ' + (ENV.mutations() * 100).toFixed(0) + '%';
